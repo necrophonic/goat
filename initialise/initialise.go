@@ -10,7 +10,7 @@ import (
 )
 
 // Folder initialises a given folder as an empty GoAT test pack. Returns an error
-// if the folder could not be initialiseed.
+// if the folder could not be initialised.
 func Folder(target string) error {
 	log.Debug("initialiseing folder [%s]", target)
 
@@ -34,7 +34,7 @@ func Folder(target string) error {
 		return err
 	}
 
-	log.Info("folder [%s] initialiseed", target)
+	log.Info("folder [%s] initialised", target)
 	return nil
 }
 
