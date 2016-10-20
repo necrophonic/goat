@@ -1,4 +1,27 @@
 // Package initialise prepares workspaces to be used as test packs
+//
+// The chosen target to initialise must be a valid folder that exists and is empty
+//
+//	// Initialise the current working directory
+//	if err := initialise.CurrentFolder(); err != nil {
+//		log.Errorf("Failed to initialise: %v", err)
+//	}
+//
+//	// Initialise a specified folder
+//	if err := initialise.Folder("/path/to/folder"); err != nil {
+//		log.Errorf("Failed to initialise: %v", err)
+//	}
+//
+// In both instances, the following structure will be created:
+//
+//	+ ./
+//	  + .gitignore
+//	  + config/		# Holds configuration for the test pack
+//	    + default.json
+//	  + pages/		# Object page definitions
+//	  + tests/		# Test specifications
+//	  + results/		# Test output
+//
 package initialise
 
 import (
@@ -12,7 +35,7 @@ import (
 // Folder initialises a given folder as an empty GoAT test pack. Returns an error
 // if the folder could not be initialised.
 func Folder(target string) error {
-	log.Debug("initialiseing folder [%s]", target)
+	log.Debugf("initialiseing folder [%s]", target)
 
 	if err := testFolderIsReadyToinitialise(target); err != nil {
 		return errors.New("folder not ready to initialise: " + err.Error())
@@ -34,11 +57,12 @@ func Folder(target string) error {
 		return err
 	}
 
-	log.Info("folder [%s] initialised", target)
+	log.Infof("folder [%s] initialised", target)
 	return nil
 }
 
-// CurrentFolder initialises the current working directory as a test pack
+// CurrentFolder initialises the current working directory as a test pack. Returns an error
+// if the current folder could not be initialised.
 func CurrentFolder() error {
 	wd, err := os.Getwd()
 	if err != nil {

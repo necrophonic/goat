@@ -6,7 +6,7 @@ deps:
 	-go get github.com/necrophonic/log
 
 test-deps:
-	-go get github.com/necrophonic/assert
+	-go get github.com/smartystreets/goconvey
 
 build: deps
 
