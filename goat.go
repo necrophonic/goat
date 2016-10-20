@@ -16,13 +16,13 @@ func main() {
 
 	if *logLevel != "" {
 		if err := log.InitFromString(*logLevel); err != nil {
-			log.Fatal("%v", err)
+			log.Fatalf("%v", err)
 		}
 	}
 
 	if *doInit {
 		if err := initialise.CurrentFolder(); err != nil {
-			log.Fatal("unable to initialise current folder: %v", err)
+			log.Fatalf("unable to initialise current folder: %v", err)
 		}
 		// If initialising then we're not actually running tests so just exit
 		os.Exit(0)
