@@ -1,3 +1,4 @@
+// Package main provides the entry point for standalone GoAT testing
 package main
 
 import (
