@@ -1,0 +1,11 @@
+name: Simple test 1
+description: A simple test layout
+scenarios:
+  - name: 'a scenario'
+    script:
+      - Given that I have done something
+      - Then I expect something else to be true
+
+  - name: 'another scenario'
+    script:
+      - Do something else
