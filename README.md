@@ -1,6 +1,8 @@
 GoAT
 ====
 
+[![](https://godoc.org/github.com/necrophonic/goat?status.svg)](http://godoc.org/github.com/necrophonic/goat)
+
 GoAT is a Go Acceptance Testing framework
 
 **NB This is a pre-alpha work in progress!**
