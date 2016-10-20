@@ -1,6 +1,7 @@
 package initialise
 
 import (
+	"os"
 	"testing"
 
 	. "github.com/smartystreets/goconvey/convey"
@@ -27,5 +28,14 @@ func TestInitialiseFolder(t *testing.T) {
 		err := Folder("./initialise.go")
 		So(err, ShouldNotBeNil)
 		So(err.Error(), ShouldEqual, errStub+"target [./initialise.go] is not a folder")
+	})
+}
+
+func TestInitialiseCurrentFolder(t *testing.T) {
+	Convey("Folder is not empty", t, func() {
+		err := CurrentFolder()
+		wd, _ := os.Getwd()
+		So(err, ShouldNotBeNil)
+		So(err.Error(), ShouldEqual, errStub+"target ["+wd+"] is not empty")
 	})
 }
